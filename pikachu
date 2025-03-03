@@ -1,0 +1,60 @@
+import turtle
+
+def draw_circle(t, x, y, radius, color):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.color(color)
+    t.begin_fill()
+    t.circle(radius)
+    t.end_fill()
+
+def draw_ear(t, x, y, angle, radius, extent, color):
+    t.penup()
+    t.goto(x, y)
+    t.pendown()
+    t.setheading(angle)
+    t.color(color)
+    t.begin_fill()
+    t.circle(radius, extent)
+    t.left(120)
+    t.circle(radius, extent)
+    t.end_fill()
+
+screen = turtle.Screen()
+screen.bgcolor("white")
+
+pen = turtle.Turtle()
+pen.speed(10)
+pen.pensize(3)
+
+draw_circle(pen, 0, 0, 100, ("black", "yellow"))
+
+draw_ear(pen, -60, 150, 60, -80, 120, ("black", "yellow"))
+draw_ear(pen, 60, 150, 120, 80, 120, ("black", "yellow"))
+
+draw_circle(pen, -40, 120, 20, ("black", "white"))
+draw_circle(pen, 40, 120, 20, ("black", "white"))
+
+draw_circle(pen, -30, 130, 10, ("black", "black"))
+draw_circle(pen, 50, 130, 10, ("black", "black"))
+
+pen.penup()
+pen.goto(0, 80)
+pen.pendown()
+pen.color("black")
+pen.setheading(270)
+pen.forward(20)
+
+pen.penup()
+pen.goto(-40, 60)
+pen.pendown()
+pen.setheading(-60)
+pen.circle(40, 120)
+
+draw_circle(pen, -80, 80, 15, ("red", "red"))
+draw_circle(pen, 80, 80, 15, ("red", "red"))
+
+pen.hideturtle()
+
+turtle.done()
